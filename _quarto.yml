@@ -1,6 +1,7 @@
 url: https://sanduni-p.github.io/IntroR-tidyverse/
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Introduction to R: visualizing data"

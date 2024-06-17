@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R: visualizing data",
+    "section": "",
+    "text": "This workshop is designed to provide beginners with foundational understanding of R programming language. Through a combination of theoretical explanations, hands-on coding exercises, and practical applications, participants will learn how to leverage R for data visualization of cancer biology datasets.\nThe workshop will cover essential programming concepts and gradually introduce more advanced topics, with a focus on using the ggplot2 package suite for data visualization. The aim of this workshop is to analyse data and create informative plots."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Introduction to R: visualizing data",
+    "section": "",
+    "text": "This workshop is designed to provide beginners with foundational understanding of R programming language. Through a combination of theoretical explanations, hands-on coding exercises, and practical applications, participants will learn how to leverage R for data visualization of cancer biology datasets.\nThe workshop will cover essential programming concepts and gradually introduce more advanced topics, with a focus on using the ggplot2 package suite for data visualization. The aim of this workshop is to analyse data and create informative plots."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Introduction to R: visualizing data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nParticipants will gain the following skills:\n\nProficiency in using R and RStudio for data analysis.\nBasic R programming skills.\nReading datasets using readr package.\nCreating various types of plots using ggplot2 package."
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Introduction to R: visualizing data",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nBefore starting this course you will need to ensure that your computer is set up with the required software. If you have any difficulty installing any of this software then please contact one of the trainers for help.\n\nInstalling R and RStudio\nR and RStudio are separate downloads and installations.\nR is the underlying statistical computing environment. The base R system and a very large collection of packages that give you access to a huge range of statistical and analytical functionality are available from CRAN, the Comprehensive R Archive Network.\nHowever, using R alone is no fun. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive.\n\nLocal Installation\nYou need to install R before you install RStudio.\n\n\nWindows\n\n\nIf you already have R and RStudio installed:\n\nOpen RStudio, and click on “Help” &gt; “Check for updates”. If a new version is available, quit RStudio, and download the latest version for RStudio.\nTo check which version of R you are using, start RStudio and the first thing that appears in the console indicates the version of R you are running. Alternatively, you can type sessionInfo(), which will also display which version of R you are running. Go on the CRAN website and check whether a more recent version is available. If so, please download and install it. You can check here for more information on how to remove old versions from your system if you wish to do so.\n\nIf you don’t have R and RStudio installed:\n\nDownload R from the CRAN website.\nRun the .exe file that was just downloaded\nGo to the RStudio download page\nUnder Installers select RStudio x.yy.zzz - Windows 10/8/7 where x, y, and z represent version numbers)\nDouble click the file to install it\nOnce it’s installed, open RStudio to make sure it works and you don’t get any error messages.\n\n\n\n\nmacOS\n\nIf you already have R and RStudio installed:\n\nOpen RStudio, and click on “Help” &gt; “Check for updates”. If a new version is available, quit RStudio, and download the latest version for RStudio.\nTo check the version of R you are using, start RStudio and the first thing that appears on the terminal indicates the version of R you are running. Alternatively, you can type sessionInfo(), which will also display which version of R you are running. Go on the CRAN website and check whether a more recent version is available. If so, please download and install it.\n\nIf you don’t have R and RStudio installed:\n\nDownload R from the CRAN website.\nSelect the .pkg file for the latest R version\nDouble click on the downloaded file to install R\nIt is also a good idea to install XQuartz (needed by some packages)\nGo to the RStudio download page\nUnder Installers select RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit) (where x, y, and z represent version numbers)\nDouble click the file to install RStudio\nOnce it’s installed, open RStudio to make sure it works and you don’t get any error messages.\n\n\n\n\n\nLinux\n\n\nFollow the instructions for your distribution from CRAN, they provide information to get the most recent version of R for common distributions. For most distributions, you could use your package manager (e.g., for Debian/Ubuntu run sudo apt-get install r-base, and for Fedora sudo yum install R), but we don’t recommend this approach as the versions provided by this are usually out of date. In any case, make sure you have at least R 4.3.2.\nGo to the RStudio download page\nUnder Installers select the version that matches your distribution, and install it with your preferred method (e.g., with Debian/Ubuntu sudo dpkg -i   rstudio-x.yy.zzz-amd64.deb at the terminal).\nOnce it’s installed, open RStudio to make sure it works and you don’t get any error messages.\n\n\n\n\n\nInstalling R Packages\nOn this course we will be making use of a brilliant collection of packages designed for data science called the tidyverse that make it much easier and more fun to work with your data. After installing R and RStudio, follow the instructions below to install the tidyverse package suite.\n\nAfter starting RStudio, at the console type: install.packages(\"tidyverse\") (look for the ‘Console’ tab and type at the &gt; prompt)\nYou can also do this by going to Tools -&gt; Install Packages and typing the names of the packages separated by a comma."
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Introduction to R: visualizing data",
+    "section": "Data",
+    "text": "Data\nThe Metabric study characterized the genomic mutations and gene expression profiles for 2509 primary breast tumours. In addition to the gene expression data generated using microarrays, genome-wide copy number profiles were obtained using SNP microarrays. Targeted sequencing was performed for 2509 primary breast tumours, along with 548 matched normals, using a panel of 173 of the most frequently mutated breast cancer genes as part of the Metabric study.\nRefrences:\n\nCurtis et al., Nature 486:346-52, 2012\nPereira et al., Nature Communications 7:11479, 2016\n\nBoth the clinical data and the gene expression values were downloaded from cBioPortal.\nWe excluded observations for patient tumor samples lacking expression data, resulting in a data set with fewer rows."
+  },
+  {
+    "objectID": "index.html#credits-and-acknowledgement",
+    "href": "index.html#credits-and-acknowledgement",
+    "title": "Introduction to R: visualizing data",
+    "section": "Credits and Acknowledgement",
+    "text": "Credits and Acknowledgement\nThese content were adapted from the Introduction to R: exploring the tidyverse course materials."
+  }
+]
