@@ -1,10 +1,10 @@
-url: https://sanduni-p.github.io/IntroR-tidyverse/
+url: https://sanduni-p.github.io/IntroR-Viz/
 project:
   type: website
   output-dir: docs
 
 website:
-  title: "Introduction to R: visualizing data"
+  title: "Introduction to R: Visualizing Cancer Data"
   navbar:
     left:
       - href: index.html
