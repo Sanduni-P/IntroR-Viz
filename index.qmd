@@ -291,9 +291,9 @@ Add a title (e.g. `IntroR`), your name as Author and save this document as 'Intr
 
 ![](images/naming-quarto.png)
 
-Download the Quarto document from the following link and open it using the RStudio. We will use it as a notebook during this workshop. 
+Download the Quarto document from the following ![this link](https://github.com/Sanduni-P/IntroR-Viz/blob/main/utils/Notebook.qmd). Click the download raw file button at the right side. Open it using the RStudio. We will use it as a notebook during this workshop. 
 
-
+![](images/download-notebook.png)
 
 ## Comments
 
