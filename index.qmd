@@ -283,13 +283,17 @@ RStudio provides syntax highlighting in the Script pane, making it easier to ide
 
 ### Open a New Quarto Document
 
-Navigate to **File → New File → Quarto Document**, a new pane will emerge in the top-left corner. 
+Navigate to **File → New File → Quarto Document**. 
 
 ![](images/open-quarto.png)
 
-Add a title (e.g. `IntroR`), your name as Author and save this document as 'IntroR-doc.qmd' in your current working directory (e.g. `IntroR`).
+Add a title (e.g. `IntroR`), your name as Author and save this document as 'IntroR-doc.qmd' in your current working directory (e.g. `IntroR`). A new pane will emerge in the top-left corner.
 
 ![](images/naming-quarto.png)
+
+Download the Quarto document from the following link and open it using the RStudio. We will use it as a notebook during this workshop. 
+
+
 
 ## Comments
 
@@ -324,13 +328,13 @@ We can use R as a calculator to do simple maths.
 3 + 5
 ```
 
-More complex calculator functions are *built in* to R, which is the reason it is popular among mathematicians and statisticians. To use these functions, we need to call these functions.
+More complex calculator functions are *built in* to R, which is the reason it is popular among mathematicians and statisticians. 
+
+**Task 1: What is the output of this expression: 6050 * 72 + 124 / 25000 * 0.001 - 433576**
 
 ## Getting Help
 
-In R, the `?` and `??` operators are used for accessing help documentation, but they behave slightly differently.
-
--   The `?` operator is used to access help documentation for a specific function or topic. When you type `?` followed by the name of a function, you get detailed information about that function. For example try:
+In R, the `?` operator is used for accessing help documentation for a specific function or topic. When you type `?` followed by the name of a function, you get detailed information about that function. For example try:
 
 ```{r}
 ?mean
@@ -352,16 +356,7 @@ tools:::Rd2HTML(utils:::.getHelpFile(help(mean)))
 </details>
 ```
 
-
 The above command displays the help documentation for the `mean` function, providing information about its usage, arguments, and examples.
-
--   The `??` operator is used for a broader search across help documentation. It performs a search for the specified term or keyword in the documentation.
-
-```{r}
-??regression
-```
-
-This will search for the term "regression" in the help documentation and return relevant results. It's useful when you want to find functions, packages, or topics related to a specific term.
 
 ::: callout-tip
 Tab completion A very useful feature is Tab completion. You can start typing and use <kbd>Tab</kbd> to autocomplete code, for example, a function name.
@@ -405,12 +400,7 @@ This makes the functions and datasets from the 'tidyverse' package available for
 You only need to install a package once. Once installed, you don't need to reinstall it in subsequent sessions. However, you do need to load the package at the beginning of each R session using the `library()` function before you can utilize its functions and features. This ensures that the package is actively available for use in your current session.
 :::
 
-To view packages currently loaded into memory:
-
-```{r}
-(.packages())
-search()
-```
+**Task 2: Install and load the two packeages: `readr` and `ggplot2`.**
 
 ### Package Documentation
 
@@ -436,11 +426,7 @@ tools:::Rd2HTML(utils:::.getHelpFile(help(tidyverse)))
 </details>
 ```
 
-or by using `vignette` (if the documentation is in the form of vignettes):
-
-```{r}
-vignette(package="tidyverse")
-```
+**Task 3: Display the documentation of readr package.**
 
 ## Visualizing Data
 
@@ -1265,7 +1251,7 @@ You are required to:
 - Specify the dataset as `metabric`
 - x-axis plots `Integrative_cluster` column and y-axis plots `ESR1` column.
 - Use the suitable geom function
-- Use `labs(x = ?, y = ?)` method to replace `?` with correct x and y labels.   
+- Use `labs(x = ?, y = ?)` method and replace `?` with correct x and y labels.   
 
 ```{r}
 #| echo: false

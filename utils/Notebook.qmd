@@ -1,0 +1,452 @@
+---
+title: "Introduction to R - Notebook"
+author: "your name"
+format: html
+---
+
+## Useful Shortcuts
+
+- To run command: 
+    - Windows - Ctrl + Enter
+    - MAC - Cmd + Enter
+- To add a code block:
+    - Windows - Ctrl + Alt + I
+    - MAC - Cmd + Option + I
+
+
+### Simple Maths in R
+
+We can use R as a calculator to do simple maths. 
+
+What is the output of this expression: 6 * 7
+
+```{r}
+6050 * 72 + 124 / 25000 * 0.001 - 433576
+```
+
+**Task 1: What is the output of this expression: 6050 * 72 + 124 / 25000 * 0.001 - 433576**
+
+## Getting Help
+
+```{r}
+?mean
+```
+
+```{r}
+??regression
+```
+
+### Installing and Loading Packages
+
+**Task 2: Install and load the two packeages: `readr` and `ggplot2`.**
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+After installation, you need to load a package into your R session using the `library()` function. 
+
+```{r}
+
+```
+
+```{r}
+
+```
+ 
+### Package Documentation
+
+**Task 3: Display the documentation of readr package.**
+
+```{r}
+
+```
+
+## Visualizing Data
+
+`ggplot2` package simplifies the creation of plots using data frames. This package offers a streamlined interface for defining variables to plot, configuring their display, and adjusting visual attributes. Consequently, adapting to changes in the data or transitioning between plot types requires only minimal modifications. This feature facilitates the creation of high-quality plots suitable for publication with minimal manual adjustments.
+
+### Reading the Data
+
+In this section, you'll learn the basics of reading data files into R using the **readr** package. We will use the `read_csv()` function from readr package to import a dataset. CSV short for Comma Separated Values, is a text format commonly used to store tabular data. Conventionally the first line contains column headings.
+
+**Task 4: Replace `?` with correct function for the following code to work.**
+
+```{r}
+library(readr)
+metabric <- ?("https://zenodo.org/record/6450144/files/metabric_clinical_and_expression_data.csv")
+```
+
+### Exploring the Data
+
+In the previous section we imported a dataset, into a dataframe named *metabric*. This section demonstrates different ways to view this dataset.
+
+When the name of the object (data frame) is typed, the first few lines along with some information, such as the number of rows are displayed:
+
+```{r}
+metabric
+```
+
+The `dim()` function prints the dimensions (rows x columns) of the data frame:
+
+```{r}
+
+```
+
+This information is available at the environment pane in the top right panel as the number of observations (rows) and variables (columns).
+
+The `nrow()` function prints the number of rows while `ncol()` prints the number of columns:
+
+```{r}
+
+```
+
+The `View()` function gives a spreadsheet-like view of the data frame:
+
+```{r}
+
+```
+
+The `head()` function prints the top 6 rows of a data frame:
+
+```{r}
+
+```
+
+Similarly, the `tail()` function prints the bottom 6 rows of the data frame:
+
+```{r}
+
+```
+
+The `colnames()` function displays all the column names:
+
+```{r}
+```
+
+## Building a Basic Plot
+
+### 1. The data
+
+We first specify the data frame that contains the relevant data to create a plot. Here we are sending the metabric dataset to the `ggplot()` function.
+
+```{r}
+
+```
+
+This command results in an empty gray panel. We must specify how various columns of the data frame should be depicted in the plot.
+
+### 2. Aesthetics `aes()`
+
+Next, we specify the columns in the data we want to map to visual properties (called aesthetics or `aes` in ggplot2). e.g. the columns for x values, y values and colours.
+
+Since we are interested in generating a scatter plot, each point will have an x and a y coordinate. Therefore, we need to specify the x-axis to represent the transcription factor (GATA3) and y-axis to represent the estrogen receptor alpha (ESR1). 
+
+```{r}
+
+```
+
+This results in a plot which includes the grid lines, the variables and the scales for x and y axes. However, the plot is empty or lacks data points.
+
+### 3. Geometric Representation `geom_()`
+
+Since we are interested in creating a scatter plot, the geometric representation of the data will be in point form. Therefore we use the `geom_point()` function.
+
+To plot the expression of estrogen receptor alpha (ESR1) against that of the transcription factor, GATA3:
+
+```{r}
+
+```
+
+Notice that we use the `+` sign to add a *layer* of points to the plot. This concept bears resemblance to Adobe Photoshop, where layers of images can be rearranged and edited independently. In ggplot, each layer is added over the plot in accordance with its position in the code using the `+` sign.
+
+## Customizing Plots
+
+### Adding Colour
+
+The above plot could be made more informative. For instance, the additional information regarding the ER status (i.e., ER_status column) could be incorporated into the plot. To do this, we can utilize `aes()` and specify which column in the `metabric` data frame should be represented as the color of the points.
+
+```{r}
+
+```
+
+Notice that we specify the `colour = ER_status` argument in the `aes()` mapping inside the `geom_()` function instead of `ggplot()` function.
+
+To colour points based on a continuous variable, for example: Nottingham prognostic index (NPI):
+
+```{r}
+
+```
+
+In `ggplot2`, a color scale is used for continuous variables, while discrete or categorical values are represented using discrete colors.
+
+Note that some patient samples lack expression values, leading `ggplot2` to remove those points with missing values for ESR1 and GATA3.
+
+### Adding Shape
+
+Let's add shape to points. 
+
+```{r}
+
+```
+
+Note that some patient samples have not been classified and ggplot has removed those points with missing values for the three-gene classifier.
+
+To use asterix instead of points in the plot: 
+
+```{r}
+
+```
+
+It would be useful to be able to change the shape of all the points. We can do so by setting the size to a single value rather than mapping it to one of the variables in the data set - this has to be done outside the aesthetic mappings (i.e. outside the `aes()` bit) as above. 
+
+It is usually preferable to use colours to distinguish between different
+categories but sometimes colour and shape are used together when we want to
+show which group a data point belongs to in two different categorical variables.
+
+```{r}
+
+```
+
+### Adding Size and Transparency
+
+We can adjust the size and/or transparency of the points.
+
+Let's first increase the size of points.
+
+```{r}
+
+```
+
+Note that here we add the size argument outside of the the aesthetic mapping. 
+
+Transparency can be useful when we have a large number of points as we can more easily tell when points are overlaid, but like size, it is not usually mapped to a variable and sits outside the `aes()`.
+
+Let's change the transparency of points. 
+
+```{r}
+
+```
+
+### Adding Layers 
+
+We can add another *layer* to this plot using a different geometric representation (or `geom_` function) we discussed previously. 
+
+Let's add trend lines to this plot using the `geom_smooth()` function which provide a summary of the data.
+
+```{r}
+
+```
+
+Note that the shaded area surrounding blue line represents the standard error bounds on the fitted model.
+
+Let’s make the plot look a bit prettier by reducing the size of the points and making them transparent. We’re not mapping size or alpha to any variables, just setting them to constant values, and we only want these settings to apply to the points, so we set them inside `geom_point()`.
+
+```{r}
+
+```
+
+Let's add some colour to the plot. 
+
+```{r}
+
+```
+
+### Adding Labels
+
+By default, `ggplot` use the column names specified inside the `aes()` as the axis labels. We can change this using the `x = ` and `y =` arguments in `labs()` function.
+
+```{r}
+ggplot(data = metabric, mapping = aes(x = GATA3, y = ESR1)) +
+  geom_point(mapping = aes(colour = ER_status), size = 0.5, alpha = 0.5) +
+  geom_smooth() +
+  labs(x = "GATA3 Expression",
+       y = "ESR1 Expression")
+```
+
+You can also add a title, a subtitle, a caption or a tag. 
+
+```{r}
+ggplot(data = metabric, mapping = aes(x = GATA3, y = ESR1)) +
+  geom_point(mapping = aes(colour = ER_status), size = 0.5, alpha = 0.5) +
+  geom_smooth() +
+  labs(
+    title = "Expression of estrogen receptor alpha against the transcription factor",
+    subtitle = "ESR1 vs GATA3",
+    caption = "This is a caption",
+    tag = "Figure 1",
+    x = "GATA3 Expression",
+    y = "ESR1 Expression")
+```
+
+### Themes
+
+Themes control the overall appearance of the plot, including background color, grid lines, axis labels, and text styles. ggplot offers several built-in themes, and you can also create custom themes to match your preferences or the requirements of your publication. The default theme has a grey background.
+
+```{r}
+ggplot(data = metabric, mapping = aes(x = GATA3, y = ESR1)) +
+  geom_point(mapping = aes(colour = ER_status), size = 0.5, alpha = 0.5) +
+  geom_smooth() + theme_bw()
+```
+
+Try these themes yourselves: `theme_classic()`, `theme_dark()`, `theme_grey()` (default), `theme_light()`, `theme_linedraw()`, `theme_minimal()`, `theme_void()` and `theme_test()`. 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+## Different Types of Plots
+
+### Bar chart
+
+The metabric study redefined how we think about breast cancer by identifying and
+characterizing several new subtypes, referred to as *integrative clusters*.
+Let's create a bar chart of the number of patients whose cancers fall within
+each subtype in the metabric cohort.
+
+The `geom_bar` is the geom used to plot bar charts. It requires a single aesthetic mapping of the
+categorical variable of interest to `x`.
+
+```{r bar_plot_1}
+ggplot(data = metabric) +
+  geom_bar(aes(x = Integrative_cluster))
+```
+
+The dark grey bars are a big ugly - what if we want each bar to be a different
+colour?
+
+```{r}
+ggplot(data = metabric) +
+  geom_bar(aes(x = Integrative_cluster, colour = Integrative_cluster))
+```
+
+Colouring the edges wasn't quite what we had in mind. Look at the help for
+`geom_bar` to see what other aesthetic we should have used.
+
+```{r}
+
+```
+
+### Box plot
+
+Box plots (or *box & whisker plots*) are a particular favourite seen in many seminars and papers. Box plots summarize the distribution of a set of values by displaying the minimum and maximum values, the median (i.e. middle-ranked value), and the range of the middle 50% of values (inter-quartile range). The whisker line extending above and below the IQR box define Q3 + (1.5 x IQR), and Q1 - (1.5 x IQR) respectively. 
+
+![](https://miro.medium.com/max/18000/1*2c21SkzJMf3frPXPAR_gZA.png)
+To create a box plot from Metabric dataset:
+
+```{r}
+ggplot(data = metabric, mapping = aes(x = ER_status, y = GATA3)) +
+  geom_boxplot()
+```
+
+Let's try a colour aesthetic to also look at how estrogen receptor expression
+differs between HER2 positive and negative tumours.
+
+```{r}
+ggplot(data = metabric, mapping = aes(x = ER_status, y = GATA3, colour = HER2_status)) +
+  geom_boxplot() 
+```
+
+### Violin plot
+
+A *violin plot* is used to visualize the distribution of a numeric variable across different categories. It combines aspects of a box plot and a kernel density plot. 
+
+The width of the violin at any given point represents the density of data at that point. Wider sections indicate a higher density of data points, while narrower sections indicate lower density. By default, violin plots are symmetric.
+
+```{r}
+ggplot(data = metabric, aes(y = GATA3, x = ER_status, colour = HER2_status)) + 
+  geom_violin()
+```
+
+### Histogram
+
+The geom for creating histograms is, rather unsurprisingly, `geom_histogram()`.
+
+```{r}
+ggplot(data = metabric) +
+  geom_histogram(aes(x = Age_at_diagnosis))
+```
+
+The warning message hints at picking a more optimal number of bins by specifying
+the `binwidth` argument.
+
+```{r}
+ggplot(data = metabric) +
+  geom_histogram(aes(x = Age_at_diagnosis), binwidth = 5)
+```
+
+Or we can set the number of bins.
+
+```{r}
+ggplot(data = metabric) +
+  geom_histogram(aes(x = Age_at_diagnosis), bins = 20)
+```
+
+These histograms are not very pleasing, aesthetically speaking - how about some
+better aesthetics?
+
+```{r}
+ggplot(data = metabric) +
+  geom_histogram(
+    aes(x = Age_at_diagnosis), 
+    bins = 20, 
+    colour = "darkblue", 
+    fill = "grey")
+```
+
+## Saving plot images
+
+Use `ggsave()` to save the last plot you displayed.
+
+```{r eval = FALSE}
+ggsave("age_at_diagnosis_histogram.png")
+```
+
+You can alter the width and height of the plot and can change the image file type.
+
+```{r eval = FALSE}
+ggsave("age_at_diagnosis_histogram.pdf", width = 20, height = 12, units = "cm")
+```
+
+## Exercise
+
+1. **Generate the following plot.** 
+
+You are required to:
+
+- Specify the dataset as `metabric`
+- x-axis plots `Integrative_cluster` column and y-axis plots `ESR1` column.
+- Use the suitable geom function
+- Use `labs(x = ?, y = ?)` method and replace `?` with correct x and y labels.   
+
+```{r}
+
+```
+
+2. **The default theme has the characteristic grey background which isn't particularly suitable for printing on paper. We can change to one of a number of alternative themes available in the ggplot2 package. Add a theme to create the following plot.**
+
+```{r}
+
+```
+
+3. **Save it as a png.**
+
+```{r}
+
+```
+
+---
+
+^*These content were adapted from the [Introduction to R: exploring the tidyverse](https://sanduni-p.github.io/IntroR/) course materials.*^
+
+------------------------------------------------------------------------
