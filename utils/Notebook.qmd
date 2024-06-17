@@ -89,7 +89,7 @@ In the previous section we imported a dataset, into a dataframe named *metabric*
 When the name of the object (data frame) is typed, the first few lines along with some information, such as the number of rows are displayed:
 
 ```{r}
-metabric
+
 ```
 
 The `dim()` function prints the dimensions (rows x columns) of the data frame:
@@ -130,6 +130,11 @@ The `colnames()` function displays all the column names:
 ```
 
 ## Building a Basic Plot
+
+```{r}
+library(ggplot2)
+```
+
 
 ### 1. The data
 
@@ -447,6 +452,6 @@ You are required to:
 
 ---
 
-^*These content were adapted from the [Introduction to R: exploring the tidyverse](https://sanduni-p.github.io/IntroR/) course materials.*^
+
 
 ------------------------------------------------------------------------
