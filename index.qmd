@@ -1,0 +1,314 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Introduction
+
+This workshop is designed to provide beginners with foundational
+understanding of R programming language. Through a combination of
+theoretical explanations, hands-on coding exercises, and practical
+applications, participants will learn how to leverage R for data
+analysis, manipulation and visualization cancer biology datasets.
+
+The workshop will cover essential programming concepts and gradually
+introduce more advanced topics, with a focus on using the tidyverse
+package suite for efficient data handling, analysis and visualization.
+The aim of this workshop is to improve the reproducibility and
+efficiency of scientific research by teaching powerful tools in data
+analysis and creating informative plots.
+
+## Learning Objectives
+
+Participants will gain the following skills:
+
+-   Proficiency in using R and RStudio for data analysis.
+-   Basic R programming skills.
+-   Reading, tidying, and joining datasets using `readr` and `tidyr`
+    packages.
+-   Data manipulation and transformation using `dplyr` package.
+-   Creating various types of plots using `ggplot2` package.
+
+## Prerequisites
+
+Before starting this course you will need to ensure that your computer
+is set up with the required software. If you have any difficulty
+installing any of this software then please contact one of the trainers
+for help.
+
+### Installing R and RStudio
+
+**R** and **RStudio** are separate downloads and installations.
+
+**R** is the underlying statistical computing environment. The base R
+system and a very large collection of packages that give you access to a
+huge range of statistical and analytical functionality are available
+from [CRAN](https://cran.r-project.org), the Comprehensive R Archive
+Network.
+
+However, using R alone is no fun. **RStudio** is a graphical integrated
+development environment (IDE) that makes using R much easier and more
+interactive.
+
+#### Option 1: Local Installation
+
+You need to install R before you install RStudio.
+
+```{=html}
+<details>
+<summary style="font-weight: 600;" >
+Windows
+</summary>
+```
+-   **If you already have R and RStudio installed:**
+
+    -   Open RStudio, and click on "Help" \> "Check for updates". If a
+        new version is available, quit RStudio, and download the latest
+        version for RStudio.
+    -   To check which version of R you are using, start RStudio and the
+        first thing that appears in the console indicates the version of
+        R you are running. Alternatively, you can type `sessionInfo()`,
+        which will also display which version of R you are running. Go
+        on the [CRAN
+        website](https://cran.r-project.org/bin/windows/base/) and check
+        whether a more recent version is available. If so, please
+        download and install it. You can [check
+        here](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#How-do-I-UNinstall-R_003f)
+        for more information on how to remove old versions from your
+        system if you wish to do so.
+
+-   **If you don't have R and RStudio installed:**
+
+    -   Download R from the [CRAN
+        website](https://cran.r-project.org/bin/windows/base/release.htm).
+    -   Run the `.exe` file that was just downloaded
+    -   Go to the [RStudio download
+        page](https://www.rstudio.com/products/rstudio/download/#download)
+    -   Under *Installers* select **RStudio x.yy.zzz - Windows 10/8/7**
+        where x, y, and z represent version numbers)
+    -   Double click the file to install it
+    -   Once it's installed, open RStudio to make sure it works and you
+        don't get any error messages.
+
+</details>
+
+```{=html}
+<details>
+<summary style="font-weight: 600;" >macOS</summary>
+```
+-   **If you already have R and RStudio installed:**
+
+    -   Open RStudio, and click on "Help" \> "Check for updates". If a
+        new version is available, quit RStudio, and download the latest
+        version for RStudio.
+    -   To check the version of R you are using, start RStudio and the
+        first thing that appears on the terminal indicates the version
+        of R you are running. Alternatively, you can type
+        `sessionInfo()`, which will also display which version of R you
+        are running. Go on the [CRAN
+        website](https://cran.r-project.org/bin/macosx/) and check
+        whether a more recent version is available. If so, please
+        download and install it.
+
+-   **If you don't have R and RStudio installed:**
+
+    -   Download R from the [CRAN
+        website](https://cran.r-project.org/bin/macosx/).
+    -   Select the `.pkg` file for the latest R version
+    -   Double click on the downloaded file to install R
+    -   It is also a good idea to install
+        [XQuartz](https://www.xquartz.org/) (needed by some packages)
+    -   Go to the [RStudio download
+        page](https://www.rstudio.com/products/rstudio/download/#download)
+    -   Under *Installers* select **RStudio x.yy.zzz - Mac OS X 10.6+
+        (64-bit)** (where x, y, and z represent version numbers)
+    -   Double click the file to install RStudio
+    -   Once it's installed, open RStudio to make sure it works and you
+        don't get any error messages.
+
+</details>
+
+```{=html}
+<details>
+<summary style="font-weight: 600;" >
+Linux
+</summary>
+```
+-   Follow the instructions for your distribution from
+    [CRAN](https://cloud.r-project.org/bin/linux), they provide
+    information to get the most recent version of R for common
+    distributions. For most distributions, you could use your package
+    manager (e.g., for Debian/Ubuntu run `sudo apt-get install r-base`,
+    and for Fedora `sudo yum install R`), but we don't recommend this
+    approach as the versions provided by this are usually out of date.
+    In any case, make sure you have at least R 4.3.2.
+-   Go to the [RStudio download
+    page](https://www.rstudio.com/products/rstudio/download/#download)
+-   Under *Installers* select the version that matches your
+    distribution, and install it with your preferred method (e.g., with
+    Debian/Ubuntu `sudo dpkg -i   rstudio-x.yy.zzz-amd64.deb` at the
+    terminal).
+-   Once it's installed, open RStudio to make sure it works and you
+    don't get any error messages.
+
+</details>
+
+#### Option 2: Using Open On Demand on Peter Mac Cluster
+
+```{=html}
+<details>
+<summary style="font-weight: 600;" >
+Requesting Access to Peter Mac Cluster
+</summary>
+```
+To request access to the Cluster
+
+1.  Login to [SNOW](https://rchauprod.service-now.com/snow?id=pmcc_home)
+    and create an IT Service Desk Request as shown
+    [here](https://confluence.petermac.org.au/pages/viewpage.action?pageId=161024525).
+2.  Complete the required fields, including the following information.
+
+-   **Request Item:** (Other)
+-   **Service:** Research Computing Cluster
+-   **Subject:** HPC Cluster Account for \$first_name \$last_name
+-   **Description:** Please include the name of the person who needs the
+    account, their lab group, their manager or supervisor and what
+    experience they have with using a HPC cluster (e.g. none, some,
+    experienced).
+
+</details>
+
+```{=html}
+<details>
+<summary style="font-weight: 600;" >
+Using Open On Demand
+</summary>
+```
+**Open OnDemand** is a web portal that provides access to PeterMac file
+systems and cluster resources. It allows to view, edit, upload and
+download files, create, edit, submit and monitor jobs, run GUI
+applications, and connect via SSH, all via a web browser and with a
+minimal knowledge of Linux and scheduler commands. It enables running
+RStudio on the cluster giving you access to more memory than with our
+RStudio Pro server. Future work will enable it to use Jupyter notebooks
+on the cluster.
+
+**How to login**
+
+Requirements:
+
+-   Must have a cluster account.
+-   If want to use remotely:
+    -   Must have remote access to Citrix or VPN.
+    -   With Citrix must use Peter Mac Virtual Desktop and the Firefox
+        inside that.
+-   Username: your short cluster username not your Peter Mac computer
+    username (i.e., first_letter_of_first_namelast_name ex: srajapaksa
+    NOT last_namefirst_name ex: rajapaksasandun)
+-   Password: Peter Mac cluster password.
+
+In a browser navigate to <https://research-cluster.petermac.org.au> and
+enter your login, as in:
+
+![](vignettes/images/ood_login.png){fig-align="center" width="500"}
+
+If you see the following Unauthorized error instead of the login prompt,
+you will need to use the Citrix Edge Browser.
+
+![](vignettes/images/openondemand-error.png){fig-align="center" width="500"}
+
+You should then see in the Open OnDemand Dashboard as in:
+
+![](vignettes/images/ood.png){fig-align="center" width="500"}
+
+</details>
+
+### Installing R Packages
+
+On this course we will be making use of a brilliant collection of
+packages designed for data science called the **`tidyverse`** that make
+it much easier and more fun to work with your data. After installing R
+and RStudio, follow the instructions below to install the `tidyverse`
+package suite.
+
+-   After starting RStudio, at the console type:
+    `install.packages("tidyverse")` (look for the 'Console' tab and type
+    at the `>` prompt)
+-   You can also do this by going to Tools -\> Install Packages and
+    typing the names of the packages separated by a comma.
+
+## Data
+
+The Metabric study characterized the genomic mutations and gene
+expression profiles for 2509 primary breast tumours. In addition to the
+gene expression data generated using microarrays, genome-wide copy
+number profiles were obtained using SNP microarrays. Targeted sequencing
+was performed for 2509 primary breast tumours, along with 548 matched
+normals, using a panel of 173 of the most frequently mutated breast
+cancer genes as part of the Metabric study.
+
+**Refrences:**
+
+-   [Curtis *et al.*, Nature 486:346-52,
+    2012](https://pubmed.ncbi.nlm.nih.gov/22522925)
+-   [Pereira *et al.*, Nature Communications 7:11479,
+    2016](https://www.ncbi.nlm.nih.gov/pubmed/27161491)
+
+Both the clinical data and the gene expression values were downloaded
+from
+[cBioPortal](https://www.cbioportal.org/study/summary?id=brca_metabric).
+
+We excluded observations for patient tumor samples lacking expression
+data, resulting in a data set with fewer rows.
+
+## Into the tidyverse
+
+The core tidyverse includes the packages that you're likely to use in
+everyday data analyses. Therefore, this workshop offers an introduction
+to these core packages. As of tidyverse 1.3.0, the following packages
+are included in the core tidyverse:
+
+::: {#fig-datatypes}
+![](vignettes/images/tidyverse-packages.png){fig-align="center"}
+
+Hex logos for the eight core tidyverse packages and their primary
+purposes. Image
+source:<https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/>
+:::
+
+-   [**ggplot2**](https://ggplot2.tidyverse.org/): *Grammar of
+    Graphics.* Enables the creation of graphics in a declarative manner.
+-   [**dplyr**](https://dplyr.tidyverse.org/): *Grammar for data
+    manipulation*. Presents a set of verbs to address common challenges
+    in data manipulation.
+-   [**tidyr**](https://tidyr.tidyverse.org/): Provides a collection of
+    functions for achieving tidy data.
+-   [**readr**](https://readr.tidyverse.org/): Facilitates the rapid and
+    user-friendly reading of rectangular data (e.g., csv, tsv, and fwf).
+-   [**purrr**](https://purrr.tidyverse.org/): *Functional programming
+    toolkit.* Offers a set of tools for efficient work with functions
+    and vectors.
+-   [**tibble**](https://tibble.tidyverse.org/): *Tibbles*, a modern
+    re-imagining of the data frame, offering a more user-friendly and
+    efficient approach to handling tabular data.
+-   [**stringr**](https://stringr.tidyverse.org/): Provides a set of
+    functions designed to simplify and enhance string manipulations.
+-   [**forcats**](https://forcats.tidyverse.org/): Provides a suite of
+    useful tools for handling and manipulating categorical variables
+    (*factors*).
+
+## Credits and Acknowledgement
+
+These content were adapted from the following course materials:
+
+-   [R for Data Science book](https://r4ds.had.co.nz/index.html)
+-   [OHI Data Science
+    Training](http://ohi-science.org/data-science-training/index.html)
+-   [Data Carpentry](https://datacarpentry.org)
+-   [WEHI tidyr
+    coursebook](https://bookdown.org/ansellbr/WEHI_tidyR_course_book/)
+    by Brendan R. E. Ansell
+-   content developed by Maria Doyle.
+
+------------------------------------------------------------------------

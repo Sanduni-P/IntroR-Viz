@@ -1,0 +1,26 @@
+.landing {
+  border: 1mm solid;
+  padding: 20px;
+  border-color: #8FCBEB;
+}
+
+.title-block-banner-color{
+  color: red;
+}
+
+.scrolling {
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 9pt;
+  margin-bottom: 10px;
+}
+
+.helpscroll {
+  max-height: 400px;
+  overflow-y: auto;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #949698;
+  padding: 10px;
+  margin-bottom: 10px;
+}

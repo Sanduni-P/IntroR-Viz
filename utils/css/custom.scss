@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+
+// headings
+//$presentation-heading-font: "League Gothic", sans-serif !default;
+//$presentation-heading-color: #92278F !default;
+//$presentation-heading-text-transform: uppercase !default;
+//$body-color: #5C5C5C !default;
+//$presentation-font-size-root: 34px;
+//$primary:       #3D8F8F ;
+$toc-active-border: red;
+$font-weight-light:           300 !default;
+$font-weight-base:            $font-weight-light !default;
+//$content-padding-top: 100px;
+//$font-family-sans-serif:    "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+//$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+
+/*-- scss:rules --*/
+h1 {
+  color: #3439A3 ;
+}
+
+h2 {
+  color: #296DD4 ;
+}
+
+h3 {
+  color: #4996D3 ;
+}
+
+h4 {
+  color: #4492B4 ;
+}
+
+h5 {
+  color: #72B57D ;
+}
+
+
+table {
+  font-size: 9pt;
+}
+
+table.no-spacing {
+  border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse;  /* Optional - if you don't want to have double border where cells touch */
+}
+
+table.no-spacing tbody { 
+  height: 500px; 
+  overflow-y: auto; 
+  display: block; 
+}
+
+table.no-spacing thead { 
+  display: block; 
+}
+

@@ -1,5 +1,24 @@
+url: https://sanduni-p.github.io/IntroR-tidyverse/
 project:
-  title: "IntroR-Viz"
+  type: website
 
-editor: visual
+website:
+  title: "Introduction to R: visualizing data"
+  navbar:
+    left:
+      - href: index.html
+format:
+  html:
+    theme: 
+      - cerulean
+      - utils/css/custom.scss
+    toc: true
+    toc-expand: 1
+    toc-title: Contents
+    embed-resources: true
+    css: utils/css/custom.css
+    smooth-scroll: true
+    df-print: kable
+execute: 
+  freeze: auto
 
